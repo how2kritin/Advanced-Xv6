@@ -68,6 +68,9 @@ CFLAGS += -ffreestanding -fno-common -nostdlib -mno-relax
 CFLAGS += -I.
 CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
 CFLAGS += -D $(SCHEDULER) # Let the program know what scheduler I chose. SCHEDULER will be a macro in my program after this. Just check if FCFS or MLFQ or DEFAULT are even DEFINED. if they are, it means they are chosen.
+ifdef PBSSTAT
+CFLAGS += -D PBSSTAT
+endif
 
 # Disable PIE when possible (for Ubuntu 16.10 toolchain)
 ifneq ($(shell $(CC) -dumpspecs 2>/dev/null | grep -e '[^f]no-pie'),)
@@ -140,10 +143,13 @@ UPROGS=\
 	$U/_zombie\
 	$U/_schedulertest\
 	$U/_myexperiments\
+	$U/_getreadcount\
 	$U/_test_1\
 	$U/_test_2\
 	$U/_alarmtest\
 	$U/_schedulertest_cpu\
+	$U/_cowtest\
+	$U/_setpriority\
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
@@ -175,7 +181,7 @@ QEMUOPTS += -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
 
 qemu: $K/kernel fs.img
 	  $(QEMU) $(QEMUOPTS)
-	  touch user/myexperiments.c kernel/proc.c kernel/trap.c kernel/main.c
+	  touch user/myexperiments.c user/setpriority.c user/schedulertest_cpu.c user/schedulertest.c kernel/proc.c kernel/trap.c kernel/main.c
   # Basically, change the last modified time of the above files, so that upon recompilation, I am able to update the SCHEDULER macro chosen.
   # I need to do this for all files that depend upon the scheduler change. This is better than recompiling everything every single time.
 

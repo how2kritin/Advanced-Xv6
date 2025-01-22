@@ -143,6 +143,7 @@ UPROGS=\
 	$U/_zombie\
 	$U/_schedulertest\
 	$U/_myexperiments\
+	$U/_getreadcount\
 	$U/_test_1\
 	$U/_test_2\
 	$U/_alarmtest\
