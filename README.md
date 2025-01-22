@@ -26,6 +26,7 @@ taken in the Monsoon'23 semester at IIIT Hyderabad.
 1. [RISC-V "newlib" toolchain](https://github.com/riscv/riscv-gnu-toolchain)
 2. qemu compiled for `riscv64-softmmu`
 3. `make`
+4. `expect` package (to run `/initial-xv6/test-getreadcount.sh`)
 
 ---
 
