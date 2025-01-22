@@ -14,6 +14,7 @@ This repository contains the XV6 portion of Mini Projects 2 and 3 of the Operati
    1. [First Come-First Serve (FCFS)](#first-come-first-serve-fcfs)
    2. [Multi-Level Feedback Queues (MLFQ)](#multi-level-feedback-queues-mlfq)
    3. [Modified Priority Based Scheduler (PBS)](#modified-priority-based-scheduler-pbs)
+3. [**Copy-on-Write (CoW) fork*](#copy-on-write-cow-fork)
 
 ---
 
@@ -29,7 +30,11 @@ This repository contains the XV6 portion of Mini Projects 2 and 3 of the Operati
 
 ## getreadcount
 
+### Instructions to run
+
 ## sigalarm and sigreturn
+
+### Instructions to run
 
 ---
 
@@ -37,9 +42,19 @@ This repository contains the XV6 portion of Mini Projects 2 and 3 of the Operati
 
 ## First Come-First Serve (FCFS)
 
+### Instructions to run
+
 ## Multi-Level Feedback Queues (MLFQ)
 
+### Instructions to run
+
 ## Modified Priority Based Scheduler (PBS)
+
+### Instructions to run
+
+---
+
+# Copy on Write (CoW) fork
 
 ---
 
